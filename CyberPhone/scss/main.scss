@@ -1,0 +1,22 @@
+// Thứ tự import
+// 1. Helpers
+@import "./Helpers/variable";
+@import "./Helpers/mixin";
+
+// 2. Vendor
+
+// 3.Base
+@import "./Base/reset";
+
+// 4. Component
+@import "./Components/button";
+@import "./Components/carousel";
+
+// 5.Layout
+@import "./Layout/header";
+
+// 6.Pages
+@import "./Pages/home";
+
+// 7.Themes
+@import "./Themes/darkTheme";

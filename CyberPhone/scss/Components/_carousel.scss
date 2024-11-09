@@ -1,0 +1,28 @@
+// .carousel {
+
+// }
+
+// .carousel__title {
+
+// }
+
+// .carousel__text {
+
+// }
+
+// .carousel__btn {
+
+// }
+
+.carousel {
+    &__title {
+    }
+
+    &__text {
+        @include styleText(20px, 500, $primary-color);
+        // @include darkMode()
+    }
+
+    &__btn {
+    }
+}

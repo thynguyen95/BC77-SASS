@@ -1,0 +1,115 @@
+body {
+    background: red;
+}
+
+p {
+    color: black;
+}
+
+// .box {
+//     width: 200px;
+//     height: 200px;
+//     background: yellow;
+// }
+
+// .box .box__title {
+//     color: green;
+// }
+
+// Biến
+// Khi nào cần khi báo biến
+//  + khi giá trị cần sử dụng nhiều lần
+//  + những giá trị có khả năng thay đổi trong tương lai
+// Quy tắc đặt biến: theo chỉ số, thuộc tính hoặc màu sắc
+// Syntax: $variable_name: value
+$fs-0: 10px;
+$fs-1: 20px;
+$fs-2: 30px;
+
+$color-main: black;
+$color-second: pink;
+$color-red: red;
+$color-red-light: rgba(255, 0, 0, 0.5);
+
+$bg-main: green;
+
+// mixin tương tự function js(tên mixin, có param truyền vào)
+// Sử dụng mixn dùng @include tenMixin()
+@mixin btn($bg, $color, $border, $border-radius, $padding) {
+    background: $bg;
+    color: $color;
+    border: 1px solid $border;
+    border-radius: $border-radius;
+    padding: $padding;
+
+    // &: đại diện cho class sử dụng mixin
+    &:hover {
+        background: $color;
+        color: $bg;
+    }
+}
+
+// Biến mảng
+// $variable: (
+//     key: value ,
+//     key: value
+// )
+$breakpoint: (
+    "xl": 1200px,
+    "lg": 992px,
+    "md": 768px,
+    "sm": 576px,
+);
+
+// map-has-key: cho biết trong mảng có key truyền vào hay ko, nó sẽ trả về giá trị true/false
+// nhận vào 2 tham số:
+// $map: biến chứa mảng
+// $key: là giá trị cần tìm trong mảng
+@mixin responsive($screen) {
+    @if (map-has-key($map: $breakpoint, $key: $screen)) {
+        // map-get: trả về giá trị của $key trong mảng
+        $value: map-get(
+            $map: $breakpoint,
+            $key: $screen,
+        );
+        @media screen and (max-width: $value) {
+            // @content: nội dung code truyền vào bên trong mixin
+            @content;
+        }
+    } @else {
+        @warn "`${$screen} không tồn tại`";
+    }
+}
+
+// .box__btn:hover {}
+.box {
+    width: 200px;
+    height: 200px;
+    background: $color-second;
+
+    // &: đại diện cho selector cha bao bên ngoài, dễ bảo trì. khi class cha thay đổi thì không cần thay thủ công
+    &__title {
+        color: green;
+    }
+
+    // .c-box-news__title {
+    //     color: green;
+    // }
+
+    &__btn {
+        @include btn($bg-main, $color-main, transparent, 20px, 10px 20px);
+    }
+}
+
+// extend: kế thừa 1 class có sẵn
+.box2 {
+    @extend .box;
+    background: $bg-main;
+
+    @include responsive("xl") {
+        background: yellow;
+    }
+    @include responsive("md") {
+        background: red;
+    }
+}

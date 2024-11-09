@@ -1,0 +1,41 @@
+body {
+  background: red;
+}
+
+p {
+  color: black;
+}
+
+.box, .box2 {
+  width: 200px;
+  height: 200px;
+  background: pink;
+}
+.box__title {
+  color: green;
+}
+.box__btn {
+  background: green;
+  color: black;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+.box__btn:hover {
+  background: black;
+  color: green;
+}
+
+.box2 {
+  background: green;
+}
+@media screen and (max-width: 1200px) {
+  .box2 {
+    background: yellow;
+  }
+}
+@media screen and (max-width: 768px) {
+  .box2 {
+    background: red;
+  }
+}/*# sourceMappingURL=style.css.map */

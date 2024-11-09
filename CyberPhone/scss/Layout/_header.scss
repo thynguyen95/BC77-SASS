@@ -1,0 +1,22 @@
+:root {
+    --primary-color: #f5f9fe;
+}
+
+header {
+    // css thuần
+    // background: var(--primary-color);
+    background: $primary-color;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 4px #e2ebfc;
+
+    .navbar-brand {
+        @include styleText(30px, 700, $primary-text);
+
+        @include responsive("md") {
+            @include styleText(20px, 600, $primary-text);
+        }
+    }
+}

@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.carousel__text {
+  font-size: 20px;
+  font-weight: 500;
+  color: #f5f9fe;
+}
+:root {
+  --primary-color: #f5f9fe;
+}
+
+header {
+  background: #f5f9fe;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px #e2ebfc;
+}
+header .navbar-brand {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2a73dd;
+}
+@media screen and (max-width: 768px) {
+  header .navbar-brand {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2a73dd;
+  }
+}/*# sourceMappingURL=main.css.map */

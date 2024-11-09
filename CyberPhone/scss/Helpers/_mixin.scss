@@ -1,0 +1,21 @@
+@mixin styleText($fs, $fw, $color) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+
+@mixin responsive($screen) {
+    @if (map-has-key($map: $breakpoint, $key: $screen)) {
+        // map-get: trả về giá trị của $key trong mảng
+        $value: map-get(
+            $map: $breakpoint,
+            $key: $screen,
+        );
+        @media screen and (max-width: $value) {
+            // @content: nội dung code truyền vào bên trong mixin
+            @content;
+        }
+    } @else {
+        @warn "`${$screen} không tồn tại`";
+    }
+}
